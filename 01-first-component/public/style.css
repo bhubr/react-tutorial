@@ -1,0 +1,10 @@
+
+body {
+  margin-right: 300px;
+}
+iframe {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 300px;
+}

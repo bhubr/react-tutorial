@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>iframe Window</title>
+    <link rel="stylesheet" href="prism.css">
+    <style>
+    </style>
+</head>
+<body>
+  <div id="root">
+    <h1>Hello there, i'm an iframe</h1>
+    <p>Send Message: <button id="message_button">Hi parent</button></p>
+    <p>Got Message:</p>
+  </div>
+  <pre><code class="language-javascript" id="results"></code></pre>
+
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script src="prism.js"></script>
+  <script>
+    // addEventListener support for IE8
+    function bindEvent(element, eventName, eventHandler) {
+      if (element.addEventListener) {
+        element.addEventListener(eventName, eventHandler, false);
+      } else if (element.attachEvent) {
+        element.attachEvent('on' + eventName, eventHandler);
+      }
+    }
+
+    // Send a message to the parent
+    var sendMessage = function (msg) {
+      // Make sure you are sending a string, and to stringify JSON
+      window.parent.postMessage(msg, '*');
+    };
+
+    var results = document.getElementById('results'),
+    messageButton = document.getElementById('message_button');
+
+    // Listen to messages from parent window
+    bindEvent(window, 'message', function (e) {
+      var code = Babel.transform(e.data, { presets: ['es2015', 'react'] }).code;
+      var html = Prism.highlight(code, Prism.languages.javascript, 'javascript');
+      console.log(code, html);
+      results.innerHTML = html;
+      eval(code);
+    });
+
+    // Send random message data on every button click
+    bindEvent(messageButton, 'click', function (e) {
+      var random = Math.random();
+      sendMessage('' + random);
+    });
+  </script>
+</body>
+</html>
