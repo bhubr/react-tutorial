@@ -1,8 +1,10 @@
 const express = require('express')
 const app = express()
+const ee = require('./ee')
 const spawnPs = require('./spawnPs')
-app.use(express.static('public'))
 
+
+app.use(express.static('public'))
 setInterval(spawnPs, 5000)
 
 /**
@@ -21,16 +23,16 @@ const server = app.listen(8000)
  |
  */
 var WebSocketServer = require('websocket').server;
-var http = require('http');
+// var http = require('http');
 
 // var server = http.createServer(function(request, response) {
 //     console.log((new Date()) + ' Received request for ' + request.url);
 //     response.writeHead(404);
 //     response.end();
 // });
-server.listen(8080, function() {
-    console.log((new Date()) + ' Server is listening on port 8080');
-});
+// server.listen(8080, function() {
+//     console.log((new Date()) + ' Server is listening on port 8000');
+// });
 
 wsServer = new WebSocketServer({
     httpServer: server,
@@ -57,6 +59,11 @@ wsServer.on('request', function(request) {
     
     var connection = request.accept('echo-protocol', request.origin);
     console.log((new Date()) + ' Connection accepted.');
+    ee.on('message', msg => {
+        console.log('received', msg)
+        connection.sendUTF(msg);
+    })
+
     connection.on('message', function(message) {
         if (message.type === 'utf8') {
             console.log('Received Message: ' + message.utf8Data);

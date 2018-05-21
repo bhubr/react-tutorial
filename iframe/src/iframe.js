@@ -5,7 +5,6 @@ const iframeStyles = {
   top: 0,
   bottom: 0,
   right: 0,
-  background: 'yellow',
   width: IFRAME_WIDTH,
   height: '100%'
 }
@@ -20,6 +19,6 @@ Object.keys(iframeStyles).forEach(k => {
 export const setSource = src => iframe.src = src
 
 export const setError = message => {
-  const html = `<h1>Too Bad</h1><p>${message}</p><img style="max-width:200px;margin 0 auto" src="https://bhubr.github.io/img/grumpy-cat.jpg" alt="grumpy cat" />`
+  const html = `<div style="padding:20px"><h1>Too Bad</h1><p>${message}</p><img style="max-width:200px;margin 0 auto;display:block" src="https://bhubr.github.io/img/grumpy-cat.jpg" alt="grumpy cat" /></div>`
   setSource(`data:text/html;charset=UTF-8,${html}`)
 }

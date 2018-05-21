@@ -1,3 +1,6 @@
+#!/usr/bin/env node
+
+
 // my-custom-reporter.js
 class MyCustomReporter {
   constructor(globalConfig, options) {

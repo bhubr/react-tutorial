@@ -1,8 +1,9 @@
 const { spawn } = require('child_process')
 const path = require('path')
-const rootDir = path.normalize(`${__dirname}/..`)
 const fs = require('fs')
+const ee = require('./ee')
 
+const rootDir = path.normalize(`${__dirname}/..`)
 const appNameRegex = /\d+[-a-z]+/
 const dirs = fs.readdirSync('..')
 .filter(dir => appNameRegex.exec(dir))
@@ -27,9 +28,14 @@ const spawnPs = () => {
   child.on('close', (code) => {
     const line = stdout.split('\n')
     .find(l => /\d+[-a-z]+\/node_modules/.exec(l))
+    if(! line) {
+      console.log('no matching process !!!')
+      return
+    }
     const matches = line.match(/\d+[-a-z]+/)
     if(matches && dirs.includes(matches[0])) {
       console.log('match', matches[0])
+      ee.emit('message', matches[0])
     }
   });
 

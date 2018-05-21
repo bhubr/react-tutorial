@@ -45,7 +45,7 @@ const onerror = () => {
 
 const onclose = () => {
   console.log('echo-protocol Client Closed');
-  setError('Server connection lost')
+  setError('Le serveur Express dans <code>react-app-tdd</code> doit être lancé avec <code>node index.js</code>.')
   ws.client = null
   startPolling()
 }
