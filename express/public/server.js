@@ -77,7 +77,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 _reactDom2.default.render(_react2.default.createElement(_App2.default, null), document.getElementById('root'));
 
 },{"./App":1,"react":56,"react-dom":45}],3:[function(require,module,exports){
-module.exports={"md":"# Markdown"}
+module.exports={"md":"# Markdown\nThis is where the magic happens"}
 
 },{}],4:[function(require,module,exports){
 'use strict'
