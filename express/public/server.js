@@ -113,7 +113,7 @@ var MdJs = function (_React$Component) {
     key: 'componentDidUpdate',
     value: function componentDidUpdate() {
       // Re-highlight with Prism
-      // Prism.highlightAll();
+      Prism.highlightAll();
     }
   }, {
     key: 'componentWillReceiveProps',

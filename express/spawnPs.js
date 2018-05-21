@@ -27,11 +27,12 @@ const spawnPs = () => {
 
   child.on('close', (code) => {
     const line = stdout.split('\n')
-    .find(l => /\d+[-a-z]+\/node_modules/.exec(l))
+    .find(l => /\d+[-a-z]+\/node_modules/.exec(l) && l.endsWith('react-scripts start'))
     if(! line) {
       console.log('no matching process !!!')
       return
     }
+    console.log('## ps line', line)
     const matches = line.match(/\d+[-a-z]+/)
     if(matches && dirs.includes(matches[0])) {
       console.log('match', matches[0])

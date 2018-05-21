@@ -3,14 +3,15 @@ module.exports = `<!DOCTYPE html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="theme-color" content="#000000">
     <title>React App</title>
+    <link rel="stylesheet" href="/prism.css">
   </head>
   <body>
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
     <div id="root"></div>
+    <script src="/prism.js"></script>
     <script src="/server.js"></script>
   </body>
 </html>`

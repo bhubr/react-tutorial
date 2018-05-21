@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   ee.on('dir:changed', dir => {
   	console.log('react to dir change', dir)
   	if(dir !== currentDir) {
+      currentDir = dir
 	  	setSource('http://localhost:8000/' + dir)	
   	}
   })
