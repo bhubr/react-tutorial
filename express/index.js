@@ -1,15 +1,17 @@
-const express = require('express')
-const app = express()
-const spawnPs = require('./spawnPs')
-app.use(express.static('public'))
-
-setInterval(spawnPs, 1000)
-
-/**
- * Pour pouvoir répondre aux requêtes, l'application
- * doit d'abord ECOUTER sur un "port" (un canal de communication)
- */
-const message = `Lancement de l'app Express: http://localhost:8000`
-console.log(message)
-app.listen(8000)
-
+module.exports = `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>React App</title>
+    <link rel="stylesheet" href="/prism.css">
+  </head>
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="root"></div>
+    <script src="/prism.js"></script>
+    <script src="/server.js"></script>
+  </body>
+</html>`
