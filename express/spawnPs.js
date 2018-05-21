@@ -1,7 +1,7 @@
 const { spawn } = require('child_process')
 const path = require('path')
 const fs = require('fs')
-const ee = require('./ee')
+const currentDir = require('./currentDir')
 
 const rootDir = path.normalize(`${__dirname}/..`)
 const appNameRegex = /\d+[-a-z]+/
@@ -35,7 +35,7 @@ const spawnPs = () => {
     const matches = line.match(/\d+[-a-z]+/)
     if(matches && dirs.includes(matches[0])) {
       console.log('match', matches[0])
-      ee.emit('message', matches[0])
+      currentDir.set(matches[0])
     }
   });
 

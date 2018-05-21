@@ -1,4 +1,5 @@
 import { setSource, setError } from './iframe'
+import ee from './ee'
 
 const ws = {
   interval: -1,
@@ -45,14 +46,25 @@ const onerror = () => {
 
 const onclose = () => {
   console.log('echo-protocol Client Closed');
-  setError('Le serveur Express dans <code>react-app-tdd</code> doit être lancé avec <code>node index.js</code>.')
+  setError('Le serveur Express dans <code>react-app-tdd/express</code> doit être lancé avec <code>node server.js</code>.')
   ws.client = null
   startPolling()
 }
 
 const onmessage = (e) => {
-  if (typeof e.data === 'string') {
-    console.log("Received: '" + e.data + "'");
+  let parsed
+  if (typeof e.data !== 'string') {
+    return
+  }
+  console.log("Received: '" + e.data + "'");
+  try {
+    parsed = JSON.parse(e.data) 
+  } catch(e) {
+    console.log('not json', e)
+  }
+  if(parsed.type) {
+    console.log('parsed', parsed.type, parsed.data)
+    ee.emit(parsed.type, parsed.data)
   }
 }
 
