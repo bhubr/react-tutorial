@@ -3,13 +3,14 @@ const express = require('express')
 const ee = require('./ee')
 const spawnPs = require('./spawnPs')
 const index = require('./index')
+const currentDir = require('./currentDir')
 
 const app = express()
 app.use(express.static('public'))
 console.log('add public dir', path.normalize(`${__dirname}/..`))
 app.use(express.static(path.normalize(`${__dirname}/..`)))
 
-setInterval(spawnPs, 5000)
+setInterval(spawnPs, 1000)
 
 const message = `Lancement de l'app Express: http://localhost:8000`
 console.log(message)
@@ -64,9 +65,13 @@ wsServer.on('request', function(request) {
       console.log((new Date()) + ' Connection from origin ' + request.origin + ' rejected.');
       return;
     }
-    
+
     var connection = request.accept('echo-protocol', request.origin);
     console.log((new Date()) + ' Connection accepted.');
+    // connection.sendUTF(JSON.stringify({
+    //       type: 'dir:changed',
+    //     data: currentDir.currentDir
+    // }))
     ee.on('message', msg => {
         console.log('ee received', msg)
         connection.sendUTF(msg);
