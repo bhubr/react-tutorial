@@ -1,4 +1,4 @@
-# 01 Introduction
+# 01. Introduction
 
 Tu as sous les yeux l'apparence d'une application, telle qu'elle est générée via `create-react-app`.
 
@@ -43,11 +43,9 @@ on doit les englober avec un élément (ici une `div`).
 
 ## &Eacute;noncé - Ajouter du contenu
 
-Sans écrire encore de composant, tu vas rajouter un élément `<footer>` au bon endroit - plutôt à la fin quoi.
-
-Inspire toi du header, mais tu n'as pas besoin de mettre d'image.
-
-Le contenu à l'intérieur des balises doit être `Coming soon!` très exactement, en tenant compte des majuscules et de la ponctuation.
+* Sans écrire encore de composant, tu vas rajouter un élément `<footer>` au bon endroit - plutôt à la fin quoi.
+* Inspire toi du header, mais tu n'as pas besoin de mettre d'image, ni de mettre d'attribut `className` sur le tag `<footer>`.
+* Le contenu à l'intérieur des balises doit être `Coming soon!` très exactement, en tenant compte des majuscules et de la ponctuation.
 
 ## Lancer le test
 

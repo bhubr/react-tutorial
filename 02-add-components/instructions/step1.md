@@ -1,4 +1,4 @@
-# Premiers composants
+# 02. Premiers composants
 
 On va transformer le contenu et la structure de l'application originale.
 
@@ -26,3 +26,20 @@ et `/` le séparateur de répertoires, qui doit aussi être écrit après des no
 
 L'ajout du composant se fait en insérant `<Footer />` à l'intérieur de la `div`
 englobante, dans le `render()` du composant `App`.
+
+## Enoncé
+
+* Créer deux composants `Header` et `Paragraph`.
+* Chacun d'eux doit avoir son propre fichier.
+* Déplacer, de `App.js`, les parties correspondant au header et au paragraphe,
+dans ces composants.
+* Concernant le contenu :
+  * Le header doit contenir le texte `We changed the header content.` (supprimer
+    l'ancien contenu de texte)
+  * Le paragraphe doit contenir le texte `We changed the paragraph content too.` (supprimer
+    l'ancien contenu de texte)
+* Utiliser ces composants dans le composant `App`.
+
+Au fil de tes modifications, vérifie l'affichage du terminal où tu as
+lancé `npm test`. Les tests doivent progressivement passer, à mesure que tu franchis
+les étapes. Une fois tous les voyants au vert, passe au suivant !

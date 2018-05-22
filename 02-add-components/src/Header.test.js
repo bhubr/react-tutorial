@@ -9,7 +9,7 @@ it('renders without crashing', () => {
   ReactDOM.unmountComponentAtNode(div);
 });
 
-it('Header shows default content', () => {
+it('Header shows modified content', () => {
   const app = TestUtils.renderIntoDocument(
     <Header />
   );

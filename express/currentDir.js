@@ -4,10 +4,9 @@ const state = {
 }
 
 const setCurrentDir = dir => {
-	// if(state.currentDir === dir) {
-	// 	return
-	// }
-	console.log('dir:changed', state.currentDir, '=>', dir)
+	if(state.currentDir !== dir) {
+		console.log('dir:changed', state.currentDir, '=>', dir)
+	}
 	state.currentDir = dir
 	ee.emit('message', JSON.stringify({
 		type: 'dir:changed',

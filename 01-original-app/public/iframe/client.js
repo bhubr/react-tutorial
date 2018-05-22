@@ -992,6 +992,7 @@ Object.defineProperty(exports, "__esModule", {
 var IFRAME_WIDTH = exports.IFRAME_WIDTH = '40%';
 var iframeStyles = {
   border: '1px solid #eee',
+  'box-sizing': 'border-box',
   position: 'absolute',
   top: 0,
   bottom: 0,

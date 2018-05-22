@@ -1,6 +1,7 @@
 export const IFRAME_WIDTH = '40%'
 const iframeStyles = {
   border: '1px solid #eee',
+  'box-sizing': 'border-box',
   position: 'absolute',
   top: 0,
   bottom: 0,
