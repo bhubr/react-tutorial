@@ -73,13 +73,13 @@ wsServer.on('request', function(request) {
     //     data: currentDir.currentDir
     // }))
     ee.on('message', msg => {
-        console.log('ee received', msg)
+        // console.log('ee received', msg)
         connection.sendUTF(msg);
     })
 
     connection.on('message', function(message) {
         if (message.type === 'utf8') {
-            console.log('Received Message: ' + message.utf8Data);
+            // console.log('Received Message: ' + message.utf8Data);
             connection.sendUTF(message.utf8Data);
         }
         else if (message.type === 'binary') {

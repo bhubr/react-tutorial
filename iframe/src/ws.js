@@ -9,8 +9,8 @@ const ws = {
 const sendNumber = () => {
   if (ws.client && ws.client.readyState === ws.client.OPEN) {
     const number = Math.round(Math.random() * 0xFFFFFF);
-    ws.client.send(number.toString());
-    setTimeout(sendNumber, 1000);
+    // ws.client.send(number.toString());
+    // setTimeout(sendNumber, 1000);
   }
 }
 
@@ -58,7 +58,7 @@ const onmessage = (e) => {
   }
   console.log("Received: '" + e.data + "'");
   try {
-    parsed = JSON.parse(e.data) 
+    parsed = JSON.parse(e.data)
   } catch(e) {
     console.log('not json', e)
   }

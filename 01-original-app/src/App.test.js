@@ -15,6 +15,6 @@ it('App shows default content', () => {
   );
 
   const appNode = ReactDOM.findDOMNode(app);
-  expect(appNode.textContent).toEqual('Welcome to ReactTo get started, edit src/App.js and save to reload.');
+  expect(appNode.textContent).toEqual('Welcome to ReactTo get started, edit src/App.js and save to reload.Coming soon!');
 
 });

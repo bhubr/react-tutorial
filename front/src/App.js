@@ -8,7 +8,6 @@ class App extends React.Component {
   render() {
     return <BrowserRouter>
       <div>
-        <h1>App</h1>
         <Switch>
           <Route exact path='/:app' component={MdJs} />
         </Switch>

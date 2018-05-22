@@ -989,9 +989,9 @@ exports.default = ee;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var IFRAME_WIDTH = exports.IFRAME_WIDTH = '400px';
+var IFRAME_WIDTH = exports.IFRAME_WIDTH = '40%';
 var iframeStyles = {
-  border: 'none',
+  border: '1px solid #eee',
   position: 'absolute',
   top: 0,
   bottom: 0,
@@ -1071,8 +1071,8 @@ var ws = {
 var sendNumber = function sendNumber() {
   if (ws.client && ws.client.readyState === ws.client.OPEN) {
     var number = Math.round(Math.random() * 0xFFFFFF);
-    ws.client.send(number.toString());
-    setTimeout(sendNumber, 1000);
+    // ws.client.send(number.toString());
+    // setTimeout(sendNumber, 1000);
   }
 };
 
