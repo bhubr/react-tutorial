@@ -14,7 +14,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom --testResultsProcessor ./my-custom-processor",
+    "test": "react-scripts test --env=jsdom --testResultsProcessor ./test-processor",
     "eject": "react-scripts eject"
   }
 }
