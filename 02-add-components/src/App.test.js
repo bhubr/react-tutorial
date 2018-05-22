@@ -15,6 +15,6 @@ it('App shows default content', () => {
   );
 
   const appNode = ReactDOM.findDOMNode(app);
-  expect(appNode.textContent).toEqual('We changed the header content.We changed the paragraph content too.');
+  expect(appNode.textContent).toEqual('We changed the header content.We changed the paragraph content too.We added a footer.');
 
 });

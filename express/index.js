@@ -4,6 +4,7 @@ module.exports = `<!DOCTYPE html>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>React App</title>
+    <link rel="stylesheet" href="/github.css">
     <link rel="stylesheet" href="/prism.css">
   </head>
   <body>

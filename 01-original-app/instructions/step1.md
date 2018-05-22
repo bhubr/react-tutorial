@@ -41,9 +41,19 @@ render() {
 Il est important de voir que, si plusieurs éléments de même niveau doivent être affichés (ici `header` et `p`),
 on doit les englober avec un élément (ici une `div`).
 
-## Ajouter du contenu
+## &Eacute;noncé - Ajouter du contenu
 
 Sans écrire encore de composant, tu vas rajouter un élément `<footer>` au bon endroit - plutôt à la fin quoi.
+
+Inspire toi du header, mais tu n'as pas besoin de mettre d'image.
+
 Le contenu à l'intérieur des balises doit être `Coming soon!` très exactement, en tenant compte des majuscules et de la ponctuation.
 
-Bla bla
+## Lancer le test
+
+Si ce n'est déjà fait, lance `npm test` à partir du répertoire `01-original-app`.
+Quand les tests passent, c'est que tu as bien répondu à l'énoncé, tu peux alors
+passer à l'exercice suivant, pour cela :
+* Laisse tourner le serveur Express
+* Interromps les `npm start` et `npm test`, et relance les mêmes commandes à partir
+du répertoire de l'exercice suivant (`02-add-components`).

@@ -51,10 +51,12 @@ pour toute la procédure de build. [Grunt](https://gruntjs.com/), [Gulp](https:/
 Toutes ces commandes ont besoin d'être accessibles depuis tout le système, et c'est pourquoi
 on les installe *globalement* grâce au paramètre `-g`.
 
-Après ces explications, et une fois Yarn installé, **rends-toi dans le répertoire `01-original-app`
-et exécute** :
+Après ces explications, et une fois Yarn installé, **rends-toi dans le répertoire** `01-original-app`
+et exécute :
 
     yarn install
+
+**Puis relancer cette commande**, cette fois dans le répertoire `express`.
 
 Cela peut prendre un certain temps, car les applications React nécessitent *beaucoup*
 de dépendances !
