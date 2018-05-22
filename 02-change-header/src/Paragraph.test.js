@@ -1,20 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import * as TestUtils from 'react-dom/test-utils';
-import App from './App';
+import Paragraph from './Paragraph';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
+  ReactDOM.render(<Paragraph />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
 
-it('App shows default content', () => {
+it('Paragraph shows default content', () => {
   const app = TestUtils.renderIntoDocument(
-    <App />
+    <Paragraph />
   );
 
   const appNode = ReactDOM.findDOMNode(app);
-  expect(appNode.textContent).toEqual('We changed the header content.We changed the paragraph content too.');
+  expect(appNode.textContent).toEqual('We changed the paragraph content too.');
 
 });

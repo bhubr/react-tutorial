@@ -1,16 +1,5 @@
-# Changer le header
+# Premiers composants
 
-Yes!
+On va transformer le contenu de l'app.
 
-Let's try some JS
-
-```javascript
-const person = {
-  name: 'John',
-  sayHello: function() {
-  	console.log("Hello, I'm", this.name)
-  }
-}
-// Say hello, John!
-person.sayHello()
-```
+Dans le fichier
