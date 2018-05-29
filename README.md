@@ -72,7 +72,7 @@ dans son répertoire, mais *toutes* partageant un dossier `node_modules` commun.
 `yarn install` ci-dessus a suffi pour tout installer.
 
 Les applications - qui vont en complexité croissante - sont stockées dans des répertoires
-numérotés : `000-original-app`, `010-xxx`, `020-yyy`, etc.
+numérotés : `01-original-app`, `02-add-components`, `03-component-props`, etc.
 
 ## Utilisation
 
