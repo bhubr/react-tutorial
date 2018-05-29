@@ -34,7 +34,7 @@ const path = require('path')
 const fs = require('fs')
 const currentDir = require('./currentDir')
 const { env } = process
-const rootDir = path.normalize(`${__dirname}/..`)
+const rootDir = path.normalize(`${__dirname}/../..`)
 const kill = require('tree-kill')
 // console.log(Object.keys(env))
 

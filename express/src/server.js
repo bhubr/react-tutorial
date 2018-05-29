@@ -44,7 +44,7 @@ var WebSocketServer = require('websocket').server;
 //     console.log((new Date()) + ' Server is listening on port 8000');
 // });
 
-wsServer = new WebSocketServer({
+const wsServer = new WebSocketServer({
     httpServer: server,
     // You should not use autoAcceptConnections for production
     // applications, as it defeats all standard cross-origin protection

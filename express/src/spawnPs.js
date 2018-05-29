@@ -3,7 +3,7 @@ const path = require('path')
 const fs = require('fs')
 const currentDir = require('./currentDir')
 
-const rootDir = path.normalize(`${__dirname}/..`)
+const rootDir = path.normalize(`${__dirname}/../..`)
 const appNameRegex = /\d+[-a-z]+/
 const dirs = fs.readdirSync('..')
 .filter(dir => appNameRegex.exec(dir))
