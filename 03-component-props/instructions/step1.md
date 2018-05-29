@@ -35,7 +35,27 @@ ci-dessus, on peut accéder à l'attribut `props` via `this.props`.
 Pour passer des *propriétés* au composant, qu'il pourra récupérer via `this.props`,
 on va utiliser le composant comme ceci :
 ```jsx
-<MyComponent label="This is the value of label property" />
+class App extends React.Component {
+  // ... Code de la classe
+  render() {
+    return <MyComponent label="This is the value of label property" />
+  }
+}
+```
+
+Ici, le composant parent `App` fait appel au composant `MyComponent`, et lui passe *une* propriété,
+la *clé* de cette propriété étant `label`, et la *valeur* qui lui est associée, la chaîne `This is the value of label property`.
+
+Du point de vue du composant enfant `MyComponent`, celui-ci peut accéder à *toutes* ses propriétés via `this.props`,
+qui est un objet. Dans cet objet, on trouve *une propriété pour chaque propriété passée par le composant parent*.
+
+Donc dans l'exemple ci-dessus, à l'intérieur de `MyComponent`, si on affiche les propriétés dans la console, via `console.log(this.props)`,
+on verra :
+
+```javascript
+{
+  label: "This is the value of label property"
+}
 ```
 
 ## Enoncé
@@ -45,7 +65,8 @@ en copiant leurs fichiers vers `03-component-props/src/`.
 * Dans chacun de ces fichiers, au lieu d'avoir du texte "en dur" à l'intérieur des
 balises, utiliser la propriété `content` via `this.props.content`.
 * Pour refléter ce changement, dans `App.js`, insérer les trois composants, en passant
-à chacun une propriété `content`. Voici les valeurs à passer pour chaque composant :
+à chacun une propriété `content`. Voici les valeurs à passer dans la propriété
+`content` pour chaque composant :
     * Pour le header : `Variable content with component props`
     * Pour le paragraphe : `The paragraph content is variable, just like the header's content. So far we used only one property (content).`
     * Pour le footer : `Coming soon: more properties!`

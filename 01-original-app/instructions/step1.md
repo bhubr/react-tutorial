@@ -2,6 +2,8 @@
 
 Tu as sous les yeux l'apparence d'une application, telle qu'elle est générée via `create-react-app`.
 
+Cette appli se trouve sous `01-original-app`.
+
 C'est surtout le dossier `src/` qui va t'intéresser dans chacun des exercices de cette série.
 
 ## index.js
@@ -23,19 +25,22 @@ Reporte toi au cours sur [http://course.jsx.fr/react/toc](http://course.jsx.fr/r
 
 La méthode render() d'un composant permet de définir ce qu'il affichera :
 
-```
-render() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1 className="App-title">Welcome to React</h1>
-      </header>
-      <p className="App-intro">
-        To get started, edit <code>src/App.js</code> and save to reload.
-      </p>
-    </div>
-  );
+```javascript
+class App extends React.Component {
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h1 className="App-title">Welcome to React</h1>
+        </header>
+        <p className="App-intro">
+          To get started, edit <code>src/App.js</code> and save to reload.
+        </p>
+      </div>
+    );
+  }
+}
 ```
 
 Il est important de voir que, si plusieurs éléments de même niveau doivent être affichés (ici `header` et `p`),
@@ -43,7 +48,8 @@ on doit les englober avec un élément (ici une `div`).
 
 ## &Eacute;noncé - Ajouter du contenu
 
-* Sans écrire encore de composant, tu vas rajouter un élément `<footer>` au bon endroit - plutôt à la fin quoi.
+* Sans écrire encore de composant, tu vas rajouter un élément `<footer>` au bon endroit - plutôt à la fin, mais pas tout à fait...
+* N'oublie pas la balise fermante... De toute façon tu obtiendras une erreur `Failed to compile` si tu l'oublies !
 * Inspire toi du header, mais tu n'as pas besoin de mettre d'image, ni de mettre d'attribut `className` sur le tag `<footer>`.
 * Le contenu à l'intérieur des balises doit être `Coming soon!` très exactement, en tenant compte des majuscules et de la ponctuation.
 

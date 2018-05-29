@@ -28,7 +28,7 @@ et `/` le séparateur de répertoires, qui doit aussi être écrit après des no
 
 ## Utilisation
 
-L'ajout du composant se fait en insérant `<Footer />` à l'intérieur de la `div`
+L'ajout du composant `Footer` se fait en insérant `<Footer />` à l'intérieur de la `div`
 englobante, dans le `render()` du composant `App`.
 
 ## Enoncé
