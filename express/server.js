@@ -2,6 +2,7 @@ const path = require('path')
 const express = require('express')
 const ee = require('./ee')
 const spawnPs = require('./spawnPs')
+const spawnTests = require('./spawnTests')
 const index = require('./index')
 const currentDir = require('./currentDir')
 
@@ -16,7 +17,7 @@ const message = `Lancement de l'app Express: http://localhost:8000`
 console.log(message)
 const server = app.listen(8000)
 
-
+spawnTests()
 /*----------------------------------------------------------------------------------
  | Routes
  *----------------------------------------------------------------------------------
@@ -79,7 +80,7 @@ wsServer.on('request', function(request) {
 
     connection.on('message', function(message) {
         if (message.type === 'utf8') {
-            // console.log('Received Message: ' + message.utf8Data);
+            console.log('Received Message: ' + message.utf8Data);
             connection.sendUTF(message.utf8Data);
         }
         else if (message.type === 'binary') {

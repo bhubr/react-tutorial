@@ -1,6 +1,7 @@
 // my-custom-processor.js
-
-
+// const ansiRegex = require('ansi-regex')
+const Convert = require('ansi-to-html')
+const convert = new Convert()
 
 /**
  * Usage as MyCustomProcessor
@@ -8,8 +9,24 @@
  */
 const MyCustomProcessor = (res) => {
 
-  // console.log('MyCustomProcessor', res)
+  console.log('MyCustomProcessor', res)
   const { testResults } = res
+
+  //////
+  const testResult = testResults[0]
+  if(testResult.failureMessage) {
+      const { failureMessage } = testResult
+    const html = convert.toHtml(failureMessage)
+    console.log(html)
+    //   console.log('has failure message', failureMessage.match(ansiRegex()),
+    // failureMessage.replace(ansiRegex(), 'x'))
+
+    // const matches = failureMessage.match(ansiRegex())
+    // const uniqueMatches = matches.reduce((c, item) => c.includes(item) ? c : c.concat(item), [])
+    // console.log(failureMessage.includes( uniqueMatches ))
+  }
+
+  //////
 
 
   var WebSocketClient = require('websocket').client;
