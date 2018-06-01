@@ -1,14 +1,13 @@
 const { spawn } = require('child_process')
-const path = require('path')
 const fs = require('fs')
-const currentDir = require('./currentDir')
+// const currentDir = require('./currentDir')
 
-const rootDir = path.normalize(`${__dirname}/..`)
+// const rootDir = path.normalize(`${__dirname}/../..`)
 const appNameRegex = /\d+[-a-z]+/
 const dirs = fs.readdirSync('..')
-.filter(dir => appNameRegex.exec(dir))
+  .filter(dir => appNameRegex.exec(dir))
 
-const spawnPs = () => {
+const spawnPs = () => new Promise((resolve, reject) => {
   // const child = spawn('npm', ['start'], { cwd: 'server' });
   const child = spawn('ps', ['aux']);
   let stdout = ''
@@ -28,18 +27,20 @@ const spawnPs = () => {
   child.on('close', (code) => {
     const line = stdout.split('\n')
     .find(l => /\d+[-a-z]+\/node_modules/.exec(l) && l.endsWith('react-scripts start'))
+    // console.log('### line', line)
     if(! line) {
       // console.log('no matching process !!!')
-      return
+      return resolve(false)
     }
     // console.log('## ps line', line)
     const matches = line.match(/\d+[-a-z]+/)
     if(matches && dirs.includes(matches[0])) {
       // console.log('match', matches[0])
-      currentDir.set(matches[0])
+      // currentDir.set(matches[0])
+      resolve(matches[0])
     }
   });
 
-}
+})
 
 module.exports = spawnPs

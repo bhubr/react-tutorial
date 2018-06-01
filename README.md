@@ -93,3 +93,7 @@ est relancée à chaque modification des fichiers de l'application, ou des fichi
 * Un mini-serveur web reconnaît quelle application est lancée via `npm start` et affiche des instructions
 à droite de la page qui s'ouvre sur [http://localhost:3000](http://localhost:3000) Là aussi on le laisse tourner.
 * Un quatrième pour utiliser Git, etc.
+
+## Licence
+
+Publié sous Licence MIT / Published under MIT License

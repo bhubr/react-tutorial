@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "ansi-regex": "^3.0.0",
+    "ansi-to-html": "^0.6.4",
     "jest-html-reporter": "^2.3.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",

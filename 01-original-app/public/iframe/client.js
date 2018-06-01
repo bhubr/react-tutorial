@@ -1068,7 +1068,7 @@ document.addEventListener('DOMContentLoaded', function () {
   document.body.style.marginRight = _iframe.IFRAME_WIDTH;
   document.body.appendChild(_iframe.iframe);
 
-  _ee2.default.on('dir:changed', function (dir) {
+  _ee2.default.on('cra:status:changed', function (dir) {
     if (dir !== _currentDir2.default.get()) {
       _currentDir2.default.set(dir);
       (0, _iframe.setSource)('http://localhost:8000/' + dir);
@@ -1131,14 +1131,14 @@ var onopen = function onopen() {
 };
 
 var onerror = function onerror() {
-  // console.log('Connection Error')
+  console.log('### echo-protocol Connection Error');
   (0, _iframe.setError)(ERROR_MSG);
   ws.client = null;
   startPolling();
 };
 
 var onclose = function onclose() {
-  // console.log('echo-protocol Client Closed');
+  console.log('### echo-protocol Client Closed');
   (0, _iframe.setError)(ERROR_MSG);
   _currentDir2.default.set('');
   ws.client = null;
@@ -1146,6 +1146,7 @@ var onclose = function onclose() {
 };
 
 var onmessage = function onmessage(e) {
+  console.log('received message', e);
   var parsed = void 0;
   if (typeof e.data !== 'string') {
     return;
@@ -1153,16 +1154,20 @@ var onmessage = function onmessage(e) {
   try {
     parsed = JSON.parse(e.data);
   } catch (e) {
-    console.log('not json', e);
+    console.log('not json', e.data);
   }
-  if (parsed.type) {
+  if (parsed && parsed.type) {
     _ee2.default.emit(parsed.type, parsed.data);
   }
 };
 
 var connect = exports.connect = function connect() {
-  var client = ws.client = new WebSocket('ws://localhost:8000/', 'echo-protocol');
+  if (ws.client === null) {
+    console.log('### connect');
+    ws.client = new WebSocket('ws://localhost:8000/', 'echo-protocol');
+  }
 
+  var client = ws.client;
   client.onerror = onerror;
   client.onopen = onopen;
   client.onclose = onclose;
